@@ -42,7 +42,7 @@
             this.Source.BorderRadius = 10;
             this.Source.BorderThickness = 2;
             this.Source.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Source.DefaultText = "Nhập văn bản/từ vựng";
+            this.Source.DefaultText = "Nhập từ vựng";
             this.Source.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.Source.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.Source.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -58,8 +58,9 @@
             this.Source.PasswordChar = '\0';
             this.Source.PlaceholderText = "";
             this.Source.SelectedText = "";
-            this.Source.Size = new System.Drawing.Size(314, 191);
+            this.Source.Size = new System.Drawing.Size(205, 191);
             this.Source.TabIndex = 1;
+            this.Source.TextChanged += new System.EventHandler(this.Source_TextChanged);
             // 
             // Target
             // 
@@ -78,13 +79,13 @@
             this.Target.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold);
             this.Target.ForeColor = System.Drawing.Color.DarkGray;
             this.Target.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Target.Location = new System.Drawing.Point(369, 43);
+            this.Target.Location = new System.Drawing.Point(287, 43);
             this.Target.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Target.Name = "Target";
             this.Target.PasswordChar = '\0';
             this.Target.PlaceholderText = "";
             this.Target.SelectedText = "";
-            this.Target.Size = new System.Drawing.Size(314, 191);
+            this.Target.Size = new System.Drawing.Size(183, 191);
             this.Target.TabIndex = 2;
             // 
             // SourceLang
@@ -102,8 +103,11 @@
             this.SourceLang.Items.AddRange(new object[] {
             "Vietnamese",
             "English",
-            "French"});
-            this.SourceLang.Location = new System.Drawing.Point(91, 276);
+            "French",
+            "Japanese",
+            "Korean",
+            "Chinese"});
+            this.SourceLang.Location = new System.Drawing.Point(31, 276);
             this.SourceLang.Name = "SourceLang";
             this.SourceLang.Size = new System.Drawing.Size(145, 36);
             this.SourceLang.TabIndex = 3;
@@ -123,8 +127,11 @@
             this.TargetLang.Items.AddRange(new object[] {
             "Vietnamese",
             "English",
-            "French"});
-            this.TargetLang.Location = new System.Drawing.Point(456, 276);
+            "French",
+            "Japanese",
+            "Korean",
+            "Chinese"});
+            this.TargetLang.Location = new System.Drawing.Point(314, 276);
             this.TargetLang.Name = "TargetLang";
             this.TargetLang.Size = new System.Drawing.Size(145, 36);
             this.TargetLang.TabIndex = 4;
@@ -139,19 +146,19 @@
             this.Translate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.Translate.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold);
             this.Translate.ForeColor = System.Drawing.Color.White;
-            this.Translate.Location = new System.Drawing.Point(263, 358);
+            this.Translate.Location = new System.Drawing.Point(177, 318);
             this.Translate.Name = "Translate";
             this.Translate.Size = new System.Drawing.Size(140, 37);
             this.Translate.TabIndex = 6;
             this.Translate.Text = "Dịch";
-            this.Translate.Click += new System.EventHandler(this.Translate_ClickAsync);
+            this.Translate.Click += new System.EventHandler(this.Translate_Click);
             // 
             // AddFlashCardView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(484, 361);
             this.Controls.Add(this.Translate);
             this.Controls.Add(this.TargetLang);
             this.Controls.Add(this.SourceLang);
@@ -159,7 +166,6 @@
             this.Controls.Add(this.Source);
             this.Name = "AddFlashCardView";
             this.Text = "AddFlashCardView";
-            this.Load += new System.EventHandler(this.AddFlashCardView_Load);
             this.ResumeLayout(false);
 
         }

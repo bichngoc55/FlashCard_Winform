@@ -7,23 +7,50 @@ using System.Linq;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Text;
+using Google.Cloud.Translation.V2; 
 using System.Threading.Tasks;
 using System.Net;
 using System.Windows.Forms;
+using Google.Apis.Auth.OAuth2;
 
 namespace FlashCard_Winform
 {
     public partial class AddFlashCardView : Form
     {
-        private const string baseUrl = "http://api.mymemory.translated.net";
-        private HttpClient httpClient;
 
-        private async void  Translate_ClickAsync(object sender, EventArgs e)
+
+        private TranslationClient translationClient;
+        private void InitializeTranslationClient()
         {
+            var credentialsPath = "E:\\C#\\FlashCard_Winform\\FlashCard_Winform\\Resources\\ultra-airway-407519-2e04390ef407.json";
+            var credentials = GoogleCredential.FromFile(credentialsPath);
+             translationClient = TranslationClient.Create(credentials);
+        }
+
+        public AddFlashCardView()
+        {
+            InitializeComponent();
+            InitializeTranslationClient();
+            InitializeLanguageComboBoxes();
+        }
+        private void InitializeLanguageComboBoxes()
+        { 
+            SourceLang.SelectedIndex = 0;
+            TargetLang.SelectedIndex = 1;
+        }
+
+        private void Translate_Click(object sender, EventArgs e)
+        {
+             
             try
             {
-                string translatedText = await TranslateAsync(Source.Text, SourceLang.SelectedItem.ToString(), TargetLang.SelectedItem.ToString());
-                Target.Text = translatedText;
+                string sourceText = Source.Text;
+                string sourceLanguage = GetLanguageCode(SourceLang.SelectedItem.ToString());
+                string targetLanguage = GetLanguageCode(TargetLang.SelectedItem.ToString());
+  
+
+                var response = translationClient.TranslateText(sourceText, targetLanguage, sourceLanguage);
+                Target.Text = response.TranslatedText; 
                 Form1 form1 = Application.OpenForms["Form1"] as Form1;
                 if (form1 != null)
                 {
@@ -31,53 +58,45 @@ namespace FlashCard_Winform
                 }
                 this.Close();
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Translation failed. Please try again. The error is"+" "+ exception);
+                MessageBox.Show($"Translation error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private async Task<string> TranslateAsync(string text, string sourceLang, string targetLang)
+        private string GetLanguageCode(string language)
         {
-            string url = $"{baseUrl}/get?q={Uri.EscapeDataString(text)}&langpair={sourceLang}|{targetLang}";
-            HttpResponseMessage response = await httpClient.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-            string responseJson = await response.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<TranslationResponse>(responseJson);
-            if (result.responseStatus == 200)
+            switch (language)
             {
-                string decodedText = WebUtility.HtmlDecode(result.translatedText);
-                return decodedText; 
+                case "English":
+                    return "en";
+                case "Vietnamese":
+                    return "vi";
+                case "French":
+                    return "fr";
+                case "Japanese":
+                    return "ja";
+                case "Korean":
+                    return "ko";
+                case "Chinese":
+                    return "zh";
+                default:
+                    return language; 
             }
-            return string.Empty;
         }
 
-        private void AddFlashCardView_Load(object sender, EventArgs e)
+        private void Source_TextChanged(object sender, EventArgs e)
         {
-            SourceLang.Items.AddRange(new string[] { "en", "vi", "fr", "ja", "ko", "zh" });
-            TargetLang.Items.AddRange(new string[] { "en", "vi", "fr", "ja", "ko", "zh" });
-            SourceLang.SelectedIndex = 0;
-            TargetLang.SelectedIndex = 1;
+            if (Source.Text == ""|| int.TryParse(Source.Text, out _)|| double.TryParse(Source.Text, out _))
+            { 
+                Translate.Enabled = false;
+                 
+            }
+            else
+            { 
+                Translate.Enabled = true;
+            }
         }
-
-        public AddFlashCardView()
-        {
-            InitializeComponent();
-            httpClient = new HttpClient();
-        }
     }
-    public class TranslationResponse
-    {
-        [JsonProperty("responseStatus")]
-        public int responseStatus { get; set; }
+    
 
-        [JsonProperty("responseData")]
-        public TranslationData responseData { get; set; }
-
-        public string translatedText => responseData?.TranslationText;
-    }
-    public class TranslationData
-    {
-        [JsonProperty("translatedText")]
-        public string TranslationText { get; set; }
-    }
-}
+  }

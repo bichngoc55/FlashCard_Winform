@@ -34,8 +34,23 @@ namespace FlashCard_Winform
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
             AddFlashCardView addFlashCardView = new AddFlashCardView();
-            addFlashCardView.Show();
+            addFlashCardView.Owner = this;
             addFlashCardView.StartPosition = FormStartPosition.CenterParent;
+            addFlashCardView.Show();
+        }
+
+        private void siticoneDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < siticoneDataGridView1.Rows.Count)
+            {
+                string text1 = siticoneDataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                string text2 = siticoneDataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+         
+                FlashCardView flashCardView = new FlashCardView(text1, text2);
+                flashCardView.StartPosition = FormStartPosition.CenterParent;
+                flashCardView.Show();
+            }
         }
     }
 }
