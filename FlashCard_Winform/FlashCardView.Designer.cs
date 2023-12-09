@@ -47,13 +47,13 @@
             this.TargetText.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TargetText.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold);
             this.TargetText.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TargetText.Location = new System.Drawing.Point(332, 187);
+            this.TargetText.Location = new System.Drawing.Point(362, 187);
             this.TargetText.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.TargetText.Name = "TargetText";
             this.TargetText.PasswordChar = '\0';
             this.TargetText.PlaceholderText = "";
             this.TargetText.SelectedText = "";
-            this.TargetText.Size = new System.Drawing.Size(278, 166);
+            this.TargetText.Size = new System.Drawing.Size(248, 134);
             this.TargetText.TabIndex = 4;
             // 
             // ShowAnswer
@@ -102,13 +102,13 @@
             this.InputText.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.InputText.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold);
             this.InputText.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.InputText.Location = new System.Drawing.Point(332, 13);
+            this.InputText.Location = new System.Drawing.Point(362, 13);
             this.InputText.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.InputText.Name = "InputText";
             this.InputText.PasswordChar = '\0';
             this.InputText.PlaceholderText = "";
             this.InputText.SelectedText = "";
-            this.InputText.Size = new System.Drawing.Size(278, 166);
+            this.InputText.Size = new System.Drawing.Size(248, 150);
             this.InputText.TabIndex = 7;
             // 
             // SourceText
@@ -123,13 +123,13 @@
             this.SourceText.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SourceText.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold);
             this.SourceText.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SourceText.Location = new System.Drawing.Point(31, 13);
+            this.SourceText.Location = new System.Drawing.Point(26, 13);
             this.SourceText.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.SourceText.Name = "SourceText";
             this.SourceText.PasswordChar = '\0';
             this.SourceText.PlaceholderText = "";
             this.SourceText.SelectedText = "";
-            this.SourceText.Size = new System.Drawing.Size(278, 166);
+            this.SourceText.Size = new System.Drawing.Size(247, 150);
             this.SourceText.TabIndex = 8;
             // 
             // FlashCardView
