@@ -41,7 +41,10 @@ namespace FlashCard_Winform
             addFlashCardView.StartPosition = FormStartPosition.CenterParent;
             addFlashCardView.Show();
         }
-
+        public DataGridView SiticoneDataGridView1
+        {
+            get { return siticoneDataGridView1; }
+        }
 
         public void MarkResult(string text1, string text2)
         {
@@ -57,7 +60,7 @@ namespace FlashCard_Winform
                 string text2 = siticoneDataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
 
 
-                FlashCardView flashCardView = new FlashCardView(text1, text2);
+                FlashCardView flashCardView = new FlashCardView(text1, text2, e.RowIndex);
                 flashCardView.StartPosition = FormStartPosition.CenterParent;
                 flashCardView.Show();
             }

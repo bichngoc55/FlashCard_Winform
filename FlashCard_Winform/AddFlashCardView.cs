@@ -20,6 +20,7 @@ namespace FlashCard_Winform
 
 
         private TranslationClient translationClient;
+        private string defaultText = "Nhập từ vựng";
         private void InitializeTranslationClient()
         {
             var credentialsPath = "E:\\C#\\FlashCard_Winform\\FlashCard_Winform\\Resources\\ultra-airway-407519-2e04390ef407.json";
@@ -89,7 +90,11 @@ namespace FlashCard_Winform
             if (Source.Text == ""|| int.TryParse(Source.Text, out _)|| double.TryParse(Source.Text, out _))
             { 
                 Translate.Enabled = false;
-                 
+                if (Source.Text == defaultText)
+                {
+                    Source.Text = string.Empty;
+                }
+
             }
             else
             { 
