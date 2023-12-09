@@ -28,71 +28,132 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Source = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.Target = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.ShowMeaning = new Siticone.Desktop.UI.WinForms.SiticoneGradientButton();
+            this.TargetText = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.ShowAnswer = new Siticone.Desktop.UI.WinForms.SiticoneGradientButton();
+            this.RateText = new Siticone.Desktop.UI.WinForms.SiticoneGradientButton();
+            this.InputText = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.SourceText = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.SuspendLayout();
             // 
-            // Source
+            // TargetText
             // 
-            this.Source.BackColor = System.Drawing.Color.White;
-            this.Source.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Source.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Source.Location = new System.Drawing.Point(79, 149);
-            this.Source.Name = "Source";
-            this.Source.Size = new System.Drawing.Size(112, 23);
-            this.Source.TabIndex = 0;
-            this.Source.Text = "HEHEHEHHE";
+            this.TargetText.BorderRadius = 10;
+            this.TargetText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TargetText.DefaultText = "Đáp án";
+            this.TargetText.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TargetText.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TargetText.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TargetText.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TargetText.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TargetText.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold);
+            this.TargetText.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TargetText.Location = new System.Drawing.Point(332, 187);
+            this.TargetText.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.TargetText.Name = "TargetText";
+            this.TargetText.PasswordChar = '\0';
+            this.TargetText.PlaceholderText = "";
+            this.TargetText.SelectedText = "";
+            this.TargetText.Size = new System.Drawing.Size(278, 166);
+            this.TargetText.TabIndex = 4;
             // 
-            // Target
+            // ShowAnswer
             // 
-            this.Target.BackColor = System.Drawing.Color.White;
-            this.Target.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Target.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Target.Location = new System.Drawing.Point(435, 149);
-            this.Target.Name = "Target";
-            this.Target.Size = new System.Drawing.Size(112, 23);
-            this.Target.TabIndex = 1;
-            this.Target.Text = "HEHEHEHHE";
+            this.ShowAnswer.BorderRadius = 20;
+            this.ShowAnswer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ShowAnswer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ShowAnswer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ShowAnswer.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ShowAnswer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ShowAnswer.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold);
+            this.ShowAnswer.ForeColor = System.Drawing.Color.White;
+            this.ShowAnswer.Location = new System.Drawing.Point(72, 213);
+            this.ShowAnswer.Name = "ShowAnswer";
+            this.ShowAnswer.Size = new System.Drawing.Size(180, 45);
+            this.ShowAnswer.TabIndex = 5;
+            this.ShowAnswer.Text = "Hiển thị đáp án";
+            this.ShowAnswer.Click += new System.EventHandler(this.ShowAnswer_Click);
             // 
-            // ShowMeaning
+            // RateText
             // 
-            this.ShowMeaning.BorderRadius = 20;
-            this.ShowMeaning.BorderThickness = 1;
-            this.ShowMeaning.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ShowMeaning.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ShowMeaning.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ShowMeaning.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ShowMeaning.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ShowMeaning.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ShowMeaning.ForeColor = System.Drawing.Color.White;
-            this.ShowMeaning.Location = new System.Drawing.Point(227, 221);
-            this.ShowMeaning.Name = "ShowMeaning";
-            this.ShowMeaning.Size = new System.Drawing.Size(180, 45);
-            this.ShowMeaning.TabIndex = 2;
-            this.ShowMeaning.Text = "Show Meaning";
-            this.ShowMeaning.Click += new System.EventHandler(this.ShowMeaning_Click);
+            this.RateText.BorderRadius = 20;
+            this.RateText.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.RateText.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.RateText.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.RateText.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.RateText.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.RateText.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold);
+            this.RateText.ForeColor = System.Drawing.Color.White;
+            this.RateText.Location = new System.Drawing.Point(72, 276);
+            this.RateText.Name = "RateText";
+            this.RateText.Size = new System.Drawing.Size(180, 45);
+            this.RateText.TabIndex = 6;
+            this.RateText.Text = "Chấm điểm";
+            this.RateText.Click += new System.EventHandler(this.RateText_Click);
+            // 
+            // InputText
+            // 
+            this.InputText.BorderRadius = 10;
+            this.InputText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.InputText.DefaultText = "Nhập nghĩa của từ";
+            this.InputText.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.InputText.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.InputText.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.InputText.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.InputText.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.InputText.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold);
+            this.InputText.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.InputText.Location = new System.Drawing.Point(332, 13);
+            this.InputText.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.InputText.Name = "InputText";
+            this.InputText.PasswordChar = '\0';
+            this.InputText.PlaceholderText = "";
+            this.InputText.SelectedText = "";
+            this.InputText.Size = new System.Drawing.Size(278, 166);
+            this.InputText.TabIndex = 7;
+            // 
+            // SourceText
+            // 
+            this.SourceText.BorderRadius = 10;
+            this.SourceText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.SourceText.DefaultText = "Nghĩa của từ";
+            this.SourceText.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.SourceText.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.SourceText.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.SourceText.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.SourceText.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.SourceText.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold);
+            this.SourceText.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.SourceText.Location = new System.Drawing.Point(31, 13);
+            this.SourceText.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.SourceText.Name = "SourceText";
+            this.SourceText.PasswordChar = '\0';
+            this.SourceText.PlaceholderText = "";
+            this.SourceText.SelectedText = "";
+            this.SourceText.Size = new System.Drawing.Size(278, 166);
+            this.SourceText.TabIndex = 8;
             // 
             // FlashCardView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.ShowMeaning);
-            this.Controls.Add(this.Target);
-            this.Controls.Add(this.Source);
+            this.ClientSize = new System.Drawing.Size(634, 361);
+            this.Controls.Add(this.SourceText);
+            this.Controls.Add(this.InputText);
+            this.Controls.Add(this.RateText);
+            this.Controls.Add(this.ShowAnswer);
+            this.Controls.Add(this.TargetText);
             this.Name = "FlashCardView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FlashCardView";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel Source;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel Target;
-        private Siticone.Desktop.UI.WinForms.SiticoneGradientButton ShowMeaning;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox TargetText;
+        private Siticone.Desktop.UI.WinForms.SiticoneGradientButton ShowAnswer;
+        private Siticone.Desktop.UI.WinForms.SiticoneGradientButton RateText;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox InputText;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox SourceText;
     }
 }

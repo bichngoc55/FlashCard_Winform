@@ -16,11 +16,13 @@ namespace FlashCard_Winform
 {
     public partial class Form1 : Form
     {
-        int count = 0; 
+        int count = 0;
+        int diem = 0;
+
         public Form1()
         {
             InitializeComponent();
-            
+
         }
 
         public void UpdateDataGridView(string text1, string text2)
@@ -39,17 +41,40 @@ namespace FlashCard_Winform
             addFlashCardView.Show();
         }
 
-        private void siticoneDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        public void MarkResult(string text1, string text2)
+        {
+            diem += 10;
+            Mark.Text = diem.ToString();
+        }
+
+        private void siticoneDataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex < siticoneDataGridView1.Rows.Count)
             {
                 string text1 = siticoneDataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 string text2 = siticoneDataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-         
+
                 FlashCardView flashCardView = new FlashCardView(text1, text2);
                 flashCardView.StartPosition = FormStartPosition.CenterParent;
                 flashCardView.Show();
+            }
+        }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (siticoneDataGridView1.SelectedRows.Count > 0)
+            {
+                 
+                int selectedIndex = siticoneDataGridView1.SelectedRows[0].Index;
+
+                siticoneDataGridView1.Rows.RemoveAt(selectedIndex);
+            }
+            else
+            {
+               
+                MessageBox.Show("Please select a row to delete.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

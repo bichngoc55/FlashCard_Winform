@@ -165,6 +165,7 @@
             this.Controls.Add(this.Target);
             this.Controls.Add(this.Source);
             this.Name = "AddFlashCardView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddFlashCardView";
             this.ResumeLayout(false);
 
