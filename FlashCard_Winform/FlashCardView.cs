@@ -33,8 +33,8 @@ namespace FlashCard_Winform
         private void RateText_Click(object sender, EventArgs e)
         {
             TargetText.Text= data2;
-            var TargetOriginally = TargetText.Text.ToLower();
-            var InputOriginally = InputText.Text.ToLower();
+            var TargetOriginally = TargetText.Text.ToLower().Trim();
+            var InputOriginally = InputText.Text.ToLower().Trim();
             Form1 form1 = Application.OpenForms["Form1"] as Form1;
             if (form1 != null)
             {
