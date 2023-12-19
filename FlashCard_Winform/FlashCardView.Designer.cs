@@ -190,6 +190,8 @@
             this.Name = "FlashCardView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FlashCardView";
+//            this.Load += new System.EventHandler(this.FlashCardView_Load);
+            this.Shown += new System.EventHandler(this.FlashCardView_Shown);
             this.ResumeLayout(false);
 
         }

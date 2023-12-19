@@ -34,19 +34,24 @@ namespace FlashCard_Winform
         {
             TargetText.Text= data2;
             var TargetOriginally = TargetText.Text.ToLower();
-            var Inputoriginally = InputText.Text.ToLower();
+            var InputOriginally = InputText.Text.ToLower();
             Form1 form1 = Application.OpenForms["Form1"] as Form1;
             if (form1 != null)
             {
-                if (TargetOriginally == Inputoriginally)
+                if(InputText.Text==defaultText||InputText.Text=="")
                 {
-                    MessageBox.Show("Correct Answer");
+                    MessageBox.Show("Bạn chưa nhập nghĩa của từ");
+                    return;
+                }
+                if (TargetOriginally == InputOriginally || TargetText.Text == InputText.Text)
+                {
+                    MessageBox.Show("Đáp án đúng");
                     form1.MarkResult(SourceText.Text, InputText.Text);
                     
                 }
                 else
                 {
-                    MessageBox.Show("Wrong Answer");
+                    MessageBox.Show("Đáp án sai");
                      
                 } 
             }
@@ -57,7 +62,9 @@ namespace FlashCard_Winform
         {
             Form1 form1 = Application.OpenForms["Form1"] as Form1;
             if (form1 != null)
-            { 
+            {
+
+                InputText.Focus();
                 if (CurrentRowIndex < form1.SiticoneDataGridView1.Rows.Count - 2)
                 {
                     DataGridViewRow nextRow = form1.SiticoneDataGridView1.Rows[CurrentRowIndex + 1];
@@ -65,7 +72,6 @@ namespace FlashCard_Winform
                     string text2 = nextRow.Cells[2].Value.ToString();  
                     CurrentRowIndex++;
 
-                    
                     SourceText.Text = text1;
                     InputText.Text = "Nhập nghĩa của từ";
                     data2 = text2;
@@ -76,6 +82,7 @@ namespace FlashCard_Winform
                     MessageBox.Show("Không còn flashcard nào nữa", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+
         }
 
         private void Previous_Click(object sender, EventArgs e)
@@ -83,6 +90,8 @@ namespace FlashCard_Winform
             Form1 form1 = Application.OpenForms["Form1"] as Form1;
             if (form1 != null)
             {
+
+                InputText.Focus();
                 if (CurrentRowIndex >=1)
                 {
                     DataGridViewRow nextRow = form1.SiticoneDataGridView1.Rows[CurrentRowIndex - 1];
@@ -109,6 +118,13 @@ namespace FlashCard_Winform
             {
                 InputText.Text = string.Empty;
             }
+        }
+
+      
+
+        private void FlashCardView_Shown(object sender, EventArgs e)
+        {
+            InputText.Focus();
         }
     }
 }

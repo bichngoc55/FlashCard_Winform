@@ -87,6 +87,7 @@
             this.Target.SelectedText = "";
             this.Target.Size = new System.Drawing.Size(183, 191);
             this.Target.TabIndex = 2;
+//            this.Target.TextChanged += new System.EventHandler(this.Target_TextChanged);
             // 
             // SourceLang
             // 

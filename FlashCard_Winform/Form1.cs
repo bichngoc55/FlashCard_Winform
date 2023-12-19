@@ -28,10 +28,9 @@ namespace FlashCard_Winform
 
         public void UpdateDataGridView(string text1, string text2)
         {
-            count++;
-            // Tạo một ListViewItem và thêm vào ListView
-            string[] rowValues = { count.ToString(), text1, text2 };
-            siticoneDataGridView1.Rows.Add(rowValues);
+            count++; 
+            string[] rowMoi = { count.ToString(), text1, text2 };
+            siticoneDataGridView1.Rows.Add(rowMoi);
         }
 
         private void siticoneButton1_Click(object sender, EventArgs e)
@@ -39,7 +38,7 @@ namespace FlashCard_Winform
             AddFlashCardView addFlashCardView = new AddFlashCardView();
             addFlashCardView.Owner = this;
             addFlashCardView.StartPosition = FormStartPosition.CenterParent;
-            addFlashCardView.Show();
+            addFlashCardView.ShowDialog();
         }
         public DataGridView SiticoneDataGridView1
         {
@@ -62,24 +61,30 @@ namespace FlashCard_Winform
 
                 FlashCardView flashCardView = new FlashCardView(text1, text2, e.RowIndex);
                 flashCardView.StartPosition = FormStartPosition.CenterParent;
-                flashCardView.Show();
+                flashCardView.ShowDialog();
             }
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            if (siticoneDataGridView1.SelectedRows.Count > 0)
-            {
-                 
-                int selectedIndex = siticoneDataGridView1.SelectedRows[0].Index;
 
-                siticoneDataGridView1.Rows.RemoveAt(selectedIndex);
-                ReorderSTT();
+            if (siticoneDataGridView1.Rows.Count > 1)
+            {
+                if (siticoneDataGridView1.SelectedRows.Count > 0)
+                {
+                    int selectedIndex = siticoneDataGridView1.SelectedRows[0].Index;
+
+                    siticoneDataGridView1.Rows.RemoveAt(selectedIndex);
+                    ReorderSTT();
+                }
+                else
+                {
+                    MessageBox.Show("Chọn 1 dòng để xóa", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
-               
-                MessageBox.Show("Chọn 1 dòng để xóa", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Không có dữ liệu để xóa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void ReorderSTT()
@@ -129,7 +134,7 @@ namespace FlashCard_Winform
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
             saveFileDialog.Title = "Xuất dưới dạng CSV";
-            saveFileDialog.FileName = "ExportedData.csv";
+            saveFileDialog.FileName = "ExportedFlashcards.csv";
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {

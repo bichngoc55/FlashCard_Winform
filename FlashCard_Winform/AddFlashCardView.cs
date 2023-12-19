@@ -16,9 +16,7 @@ using Google.Apis.Auth.OAuth2;
 namespace FlashCard_Winform
 {
     public partial class AddFlashCardView : Form
-    {
-
-
+    { 
         private TranslationClient translationClient;
         private string defaultText = "Nhập từ vựng";
         private void InitializeTranslationClient()
@@ -51,13 +49,15 @@ namespace FlashCard_Winform
   
 
                 var response = translationClient.TranslateText(sourceText, targetLanguage, sourceLanguage);
-                Target.Text = response.TranslatedText; 
+                Target.Text = response.TranslatedText;  
                 Form1 form1 = Application.OpenForms["Form1"] as Form1;
                 if (form1 != null)
                 {
+                    Target.Text = response.TranslatedText;
+                     
                     form1.UpdateDataGridView(Source.Text, Target.Text);
-                }
-                this.Close();
+                    
+                } 
             }
             catch (Exception ex)
             {
@@ -101,6 +101,7 @@ namespace FlashCard_Winform
                 Translate.Enabled = true;
             }
         }
+         
     }
     
 
